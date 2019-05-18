@@ -9,16 +9,24 @@ $(function() {
 <% content_for :title do %>My super sweet dashboard<% end %>
 <div class="gridster">
   <ul>
-    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+    <li data-row="1" data-col="1" data-sizex="2" data-sizey="1">
       <div data-id="welcome" data-view="Text" data-title="Hackspace 42" data-text="This is your shiny new dashboard."></div>
     </li>
 
-    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+    <li data-row="2" data-col="2" data-sizex="1" data-sizey="1">
       <div data-view="Clock"></div>
     </li>
 
     <li data-row="1" data-col="3" data-sizex="2" data-sizey="2">
 			<div data-id="nextTrainConnections" data-view="List" data-title="Züge ab Gießen Hbf." data-unordered="true"></div>
+		</li>
+
+    <li data-row="2" data-col="3" data-sizex="2" data-sizey="2">
+			<div data-id="nextBusConnections" data-view="List" data-title="Busse ab Grabenstraße" data-unordered="true"></div>
+		</li>
+
+		<li data-row="2" data-col="1" data-sizex="1" data-sizey="1">
+			<div data-id="temperatur" data-view="Number" data-title="Temperatur" data-suffix=" °C" data-moreinfo="Deutscher Wetterdienst"></div>
 		</li>
   </ul>
   <center><div style="font-size: 12px">Try this: curl -d '{ "auth_token": "YOUR_AUTH_TOKEN", "text": "Hey, Look what I can do!" }' \http://<%=request.host%>:<%=request.port%>/widgets/welcome</div></center>

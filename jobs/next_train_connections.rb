@@ -1,4 +1,3 @@
-# :first_in sets how long it takes before the job is first run. In this case, it is run immediately
 require 'rest-client'
 require 'active_support/core_ext/hash/conversions'
 
@@ -13,7 +12,7 @@ def eventName(label, event)
   end
 end
 
-SCHEDULER.every '300s', :first_in => 0 do |job|
+SCHEDULER.every '3m', :first_in => 0 do |job|
   puts 'next train connection'
 
   date = Time.now.strftime("%y%m%d")
