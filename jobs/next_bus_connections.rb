@@ -13,7 +13,7 @@ SCHEDULER.every '1m', :first_in => 0 do |job|
   date = currentTime.strftime("%F")
   time = currentTime.strftime("%H:%M")
 
-  depatureRequest = "departureBoard?accessId=#{authKey}&extId=#{station}&date=#{date}&time=#{time}&duration=100"
+  depatureRequest = "departureBoard?accessId=#{authKey}&extId=#{station}&date=#{date}&time=#{time}&duration=45"
   url = "https://www.rmv.de/hapi/" + depatureRequest
 
   response = RestClient.get(url)
