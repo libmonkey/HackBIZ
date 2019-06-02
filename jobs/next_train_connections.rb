@@ -1,8 +1,9 @@
 require 'rest-client'
 require 'active_support/core_ext/hash/conversions'
+require 'yaml'
 
-luebeckEva = "8000124"
-authKey = "x-x-x-x"
+train_station = "8000124"
+auth_key = YAML.load_file('config.yml')['db_api']
 
 def eventName(label, event)
   if event['l']
@@ -20,8 +21,8 @@ SCHEDULER.every '3m', :first_in => 0 do |job|
   # TODO hour + 1 ist falsch fuer hour == 23!
   nextHour = (hour.to_i + 1).to_s
 
-  url = "https://api.deutschebahn.com/timetables/v1/plan/#{luebeckEva}/#{date}/#{nextHour}"
-  response = RestClient.get(url, headers={"Authorization": "Bearer #{authKey}"})
+  url = "https://api.deutschebahn.com/timetables/v1/plan/#{train_station}/#{date}/#{nextHour}"
+  response = RestClient.get(url, headers={"Authorization": "Bearer #{auth_key}"})
   data = Hash.from_xml(response.body)['timetable']['s']
 
   # url = "https://api.deutschebahn.com/timetables/v1/plan/#{luebeckEva}/#{date}/#{nextHour}"

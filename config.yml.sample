@@ -1,0 +1,4 @@
+#Deutsche Bahn API Token
+db-api: 'xxx'
+# RMV API Token
+rmv-api: 'x-x-x-x'
